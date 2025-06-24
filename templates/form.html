@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Form Tambah Produk & Prediksi Gambar Fashion MNIST">
+    <meta name="keywords" content="Fashion, Produk, Klasifikasi, AI, Deep Learning">
+    <meta name="author" content="Your Name">
+
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
+      
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">Recomendation System</div>
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="navbar-menu" id="navbar-menu">
+            <li><a href="#" class="navbar-link">Utama</a></li>
+            <li><a href="#" class="navbar-link">Katalog</a></li>
+            <li><a href="#" class="navbar-link active">Tambah Produk</a></li>
+        </ul>
+    </nav>
+
+    {% if message %}
+    <div id="popup-message" class="popup-message">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="jumbotron-left">
+            <h1 class="jumbotron-title">Sistem Rekomendasi</h1>
+            <div class="jumbotron-subtitle">E-Commerce Fashion</div>
+            <div class="jumbotron-subtitle1">Menggunakan Machine Learning <br>
+                Berbasis Gambar
+            </div>
+        </div>
+    </div>
+
+    <div class="artikel-container">
+        <h2 class="artikel-title">
+            Sistem Rekomendasi Fashion E-Commerce dengan Machine Learning Berbasis Gambar
+        </h2>
+        <p class="artikel-content">
+            Dalam e-commerce fashion, sistem rekomendasi sangat penting untuk meningkatkan penjualan dan pengalaman belanja. Salah satu metode modern yang efektif adalah menggunakan machine learning untuk menganalisis gambar produk dan mengklasifikasikannya berdasarkan kategori fashion seperti kaos, jaket, celana, atau sepatu.
+            Dengan teknologi klasifikasi gambar, sistem dapat mengenali jenis produk hanya dari foto. Data ini kemudian digunakan untuk menampilkan rekomendasi produk serupa secara otomatis. Misalnya, saat pengguna melihat jaket denim, sistem akan menyarankan jaket lain dengan gaya atau warna mirip.
+            Selain meningkatkan personalisasi, pendekatan ini juga membuat pencarian produk menjadi lebih efektif. Pengguna tidak perlu mengetik deskripsi panjang; cukup melihat satu produk, dan sistem langsung menyarankan item relevan. Ini sangat membantu terutama saat data pengguna masih minim (cold start).
+            Integrasi machine learning berbasis gambar menjadikan e-commerce fashion lebih pintar, responsif, dan ramah pengguna — faktor penting untuk memenangkan persaingan di pasar online saat ini. <br><br>
+
+            Dalam e-commerce fashion, sistem rekomendasi sangat penting untuk meningkatkan penjualan dan pengalaman belanja. Salah satu metode modern yang efektif adalah menggunakan machine learning untuk menganalisis gambar produk dan mengklasifikasikannya berdasarkan kategori fashion seperti kaos, jaket, celana, atau sepatu.
+            Dengan teknologi klasifikasi gambar, sistem dapat mengenali jenis produk hanya dari foto. Data ini kemudian digunakan untuk menampilkan rekomendasi produk serupa secara otomatis. Misalnya, saat pengguna melihat jaket denim, sistem akan menyarankan jaket lain dengan gaya atau warna mirip.
+            Selain meningkatkan personalisasi, pendekatan ini juga membuat pencarian produk menjadi lebih efektif. Pengguna tidak perlu mengetik deskripsi panjang; cukup melihat satu produk, dan sistem langsung menyarankan item relevan. Ini sangat membantu terutama saat data pengguna masih minim (cold start). <br><br>
+
+            Integrasi machine learning berbasis gambar menjadikan e-commerce fashion lebih pintar, responsif, dan ramah pengguna — faktor penting untuk memenangkan persaingan di pasar online saat ini.
+        </p>
+    </div>
+
+    <div class="main-container">
+        <!-- Kontainer Form -->
+        <div class="form-container">
+            <h2>Tambah Produk Baru</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="name">Nama Produk:</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="price">Harga:</label>
+                <input type="text" name="price" id="price" required>
+
+                <label for="description">Deskripsi:</label>
+                <textarea name="description" id="description" rows="4" required></textarea>
+
+                <label for="image">Upload Gambar:</label>
+                <div class="drop-zone" id="drop-zone">
+                    <span class="drop-zone-text">Drag & Drop atau Klik untuk Upload Gambar</span>
+                    <input type="file" name="image" id="image" accept="image/*" class="file-input" required>
+                </div>
+
+                <input type="submit" value="Simpan Produk" class="submit-button">
+            </form>
+        </div>
+
+        <!-- Kontainer Hasil -->
+        {% if prediction %}
+        <div class="result">
+            <h3>Produk berhasil ditambahkan</h3>
+            <img src="{{ image_path }}" alt="Gambar Produk">
+            <p><strong>Nama:</strong> {{ name }}</p>
+            <p><strong>Harga:</strong> {{ price }}</p>
+            <p><strong>Deskripsi:</strong> {{ description }}</p>
+            <h4>Prediksi kategori: {{ prediction }}</h4>
+        </div>
+        {% endif %}
+    </div>
+
+    
+    <!-- Product list SELALU di bawah main-container -->
+    <div class="product-list-container">
+        <h2>Daftar Produk Berdasarkan Kategori</h2>
+        <div class="delete-all-wrapper">
+            <form method="POST" action="{{ url_for('delete_all') }}">
+                <button type="submit" class="delete-all-btn">
+                    🗑️ Hapus Semua Produk
+                </button>
+            </form>
+        </div>
+        {% for label in labels %}
+            {% set category_idx = loop.index0 %}
+            {% if products and products[category_idx|string] %}
+                <div class="category-group">
+                    <h3>{{ label }}</h3>
+                    <div class="category-products">
+                        {% for product in products[category_idx|string] %}
+                            <div class="product-card">
+                                <form method="POST" action="{{ url_for('delete_product', category=category_idx|string, product_idx=loop.index0) }}" style="display:inline;">
+                                    <button type="submit" class="delete-btn" title="Hapus Produk">🗑️</button>
+                                </form>
+                                <img src="{{ product.image_path }}" alt="Gambar Produk" />
+                                <div class="product-info">
+                                    <strong>{{ product.name }}</strong><br>
+                                    <span>{{ product.price }}</span><br>
+                                    <span>{{ product.description }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Hamburger menu toggle
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', function () {
+                navbarMenu.classList.toggle('show');
+            });
+        }
+
+        // Format harga otomatis
+        const priceInput = document.querySelector('input[name="price"]');
+        if (priceInput) {
+            priceInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/[^0-9]/g, "");
+                if (value) {
+                    e.target.value = "Rp. " + parseInt(value).toLocaleString("id-ID");
+                } else {
+                    e.target.value = "";
+                }
+            });
+        }
+
+        // Drag & Drop logic
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('image');
+        if (dropZone && fileInput) {
+            dropZone.addEventListener('click', () => fileInput.click());
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    fileInput.files = files;
+                    dropZone.querySelector('.drop-zone-text').textContent = files[0].name;
+                }
+            });
+
+            fileInput.addEventListener('change', function () {
+                if (fileInput.files.length > 0) {
+                    dropZone.querySelector('.drop-zone-text').textContent = fileInput.files[0].name;
+                }
+            });
+        }
+
+        // Pop up auto close
+        const popup = document.getElementById('popup-message');
+        if (popup) {
+            setTimeout(() => {
+                popup.style.transition = "opacity 0.5s";
+                popup.style.opacity = 0;
+                setTimeout(() => popup.remove(), 600);
+            }, 2200);
+        }
+    });
+    </script>
+    <footer class="footer">
+        Copyright &copy; Tedy Firmansyah 2025
+    </footer>
+</body>
+</html>

@@ -1,0 +1,493 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  background: #2da884;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+.navbar-logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  background: #249370;
+  color: #fff;
+}
+
+/* Hamburger button */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.navbar-toggle .bar {
+  width: 26px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.popup-message {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  background: #fff;
+  color: #2da884;
+  padding: 18px 32px;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+  z-index: 9999;
+  opacity: 0.97;
+  animation: popup-fadein 0.5s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@keyframes popup-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 0.97;
+    transform: translateY(0);
+  }
+}
+
+.jumbotron {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+      to right,
+      rgba(46, 46, 46, 0.689),
+      rgba(169, 169, 169, 0.177)
+    ),
+    url("Img/jumbotron-bg.webp") center center/cover no-repeat;
+  padding: 48px 5vw;
+  min-height: 600px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  gap: 32px;
+}
+
+.jumbotron-left {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jumbotron-title {
+  color: #ffffff;
+  font-size: 4rem;
+  margin: 0 0 0 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.jumbotron-subtitle {
+  color: #2da884;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.jumbotron-subtitle1 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.jumbotron-right {
+  flex: 0 0 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artikel-container {
+  width: 95vw;
+  max-width: 95vw;
+  margin: 20px auto 0 auto;
+  padding: 32px 5vw;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.artikel-title {
+  color: #2da884;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.artikel-content {
+  color: #222;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 60px;
+}
+
+.form-container,
+.result {
+  flex: 1;
+  max-width: 650px;
+  background-color: #ffffff;
+  padding: 24px; /* Lebih kecil dari sebelumnya */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding-top: 24px;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+input[type="submit"] {
+  background-color: #2da884;
+  margin-top: 25px; /* Tambahkan jarak dari elemen sebelumnya */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #249370;
+}
+
+.result {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-width: 100px;
+}
+
+.drop-zone {
+  margin-top: 10px;
+  padding: 30px;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+}
+
+.drop-zone.dragover {
+  background-color: #e8f5e9;
+  border-color: #2da884;
+}
+
+.drop-zone-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.file-input {
+  display: none;
+}
+
+.product-list-container {
+  clear: both;
+  width: 80vw;
+  max-width: 80vw;
+  margin: 20px auto 20px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  display: block;
+}
+
+.category-group {
+  margin-bottom: 32px;
+}
+
+.category-group h3 {
+  color: #2da884;
+  margin-bottom: 12px;
+}
+
+.category-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.product-card {
+  background: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 14px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card img {
+  max-width: 80px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.product-info {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.delete-all-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+.delete-all-btn:hover {
+  background: #c0392b;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.delete-btn:hover {
+  color: #c0392b;
+}
+
+.delete-all-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+
+.product-card {
+  position: relative;
+}
+
+.footer {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 22px 0 18px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    gap: 64px;
+    padding: 64px;
+  }
+
+  .form-container,
+  .result {
+    max-width: 800px;
+    padding: 32px; /* Lebih kecil dari sebelumnya */
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #2da884;
+    flex-direction: column;
+    width: 180px;
+    gap: 0;
+    padding: 12px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    display: none;
+    border-radius: 0 0 8px 8px;
+  }
+  .navbar-menu.show {
+    display: flex;
+  }
+  .navbar-menu li {
+    width: 100%;
+    display: none;
+  }
+  .navbar-link {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
+  .navbar {
+    position: relative;
+    padding: 0 12px;
+  }
+
+  .container {
+    margin: 20px;
+    padding: 0px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 12px;
+  }
+  .form-container,
+  .result {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  /* Hapus/override perubahan flex-direction pada navbar dan navbar-menu */
+  .navbar {
+    padding: 0 8px;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    padding: 0 10px;
+  }
+  .navbar-menu {
+    flex-direction: row;
+    gap: 15px;
+    width: auto;
+    gap: 8px;
+  }
+  .navbar-logo {
+    margin-bottom: 0;
+  }
+
+  .jumbotron {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 4vw;
+    gap: 18px;
+  }
+  .jumbotron-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .jumbotron-right img {
+    max-width: 100%;
+    height: auto;
+  }
+}
