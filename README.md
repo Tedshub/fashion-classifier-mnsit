@@ -1,9 +1,12 @@
-# Fashion Classifier MNIST
+<h1 align="center">Fashion Classifier MNIST</h1>
+<p align="center">Image Classification on Fashion-MNIST Using Deep Learning</p>
 
-![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
+<p align="center">
+  <img src="https://img.shields.io/badge/python-v3.8+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-orange.svg" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status">
+</p>
 
 A machine learning project that builds an image classification model using the Fashion-MNIST dataset. This project leverages TensorFlow to distinguish between 10 different clothing categories based on 28×28 pixel grayscale images.
 
