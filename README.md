@@ -107,11 +107,14 @@ The script will provide:
 
 ```
 fashion-classifier-mnsit/
-├── model_fashion_mnsit.py    # Main classification script
-├── requirements.txt          # Required dependencies
-├── .gitignore               # Git ignore file
-├── LICENSE                  # MIT License
-└── README.md               # Project documentation
+├── model/ # Model training and classification scripts
+├── static/
+│ ├── assets/ # Static assets (images, icons, etc.)
+│ └── upload/ # Folder to store uploaded images
+├── templates/ # HTML templates for the web interface
+├── venv/ # Virtual environment (excluded from GitHub)
+├── app.py # Main Flask application
+└── README.md # Project documentation
 ```
 
 ## 🎯 Model Performance
