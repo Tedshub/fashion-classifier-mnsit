@@ -138,3 +138,28 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for more 
 ---
 
 <p align="center"><strong>If you find this project helpful, please give it a ⭐ on GitHub!</strong></p>
+
+## 👤 Author
+
+**[@Tedshub](https://github.com/Tedshub)**
+
+- GitHub: [@Tedshub](https://github.com/Tedshub)
+- Email: *Contact via GitHub*
+
+## 🙏 Acknowledgments
+
+- Fashion-MNIST dataset by [Zalando Research](https://github.com/zalandoresearch/fashion-mnist)
+- TensorFlow team for the excellent deep learning framework
+- Open source community for inspiration and resources
+
+## 📚 References
+
+- [Fashion-MNIST Official Repository](https://github.com/zalandoresearch/fashion-mnist)
+- [TensorFlow Documentation](https://www.tensorflow.org/api_docs)
+- [Keras API Reference](https://keras.io/api/)
+
+---
+
+**Happy learning and experimenting with deep learning in the fashion world! ✨**
+
+*If you find this project helpful, please consider giving it a ⭐ on GitHub!*
