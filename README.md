@@ -7,6 +7,10 @@
 
 A machine learning project that builds an image classification model using the Fashion-MNIST dataset. This project leverages TensorFlow to distinguish between 10 different clothing categories based on 28×28 pixel grayscale images.
 
+
+## 🖼️ Preview Deployment
+
+
 ## 🎯 Features
 
 - **Deep Learning Model**: Fully connected neural network for fashion image classification
