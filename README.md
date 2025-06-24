@@ -9,7 +9,11 @@ A machine learning project that builds an image classification model using the F
 
 
 ## 🖼️ Preview Deployment
-
+![Model Preview](images/prev1.png)
+![Model Preview](images/prev2.png)
+![Model Preview](images/prev3.png)
+![Model Preview](images/prev4.png)
+![Model Preview](images/prev5.png)
 
 ## 🎯 Features
 
